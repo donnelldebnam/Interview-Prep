@@ -29,7 +29,7 @@ public class Main {
             throw new IllegalArgumentException("Invalid input array; length too short.");
         }
 
-        // HashMap for storing entries mapping to index in which it was visited.
+        // Map to store complements and their indices.
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         
         // Visit each element in the input array. If the complement of the current element has 
@@ -70,7 +70,9 @@ public class Main {
     }
 
     /**
-     * Returns whether the input string contains balanced parentheses.
+     * Given an input string `str` that only contains parentheses, determine whether the
+     * string's parentheses are balanced.
+     * https://leetcode.com/problems/valid-parentheses/
      * 
      * Balanced = "(()"
      * Unbalanced = ")(", "(()"
@@ -135,7 +137,7 @@ public class Main {
      */
     public static int mostOccuringNumber(int[] arr) throws Exception {
         
-        // Check input length
+        // Input validation
         if (arr.length == 0) { 
             throw new IllegalArgumentException("Array must at least be of length 1");
         }
@@ -161,7 +163,8 @@ public class Main {
     }
 
     /**
-     * A function that detects if its input uses correct/valid capitalization.
+     * Create a function that detects if its input uses correct/valid capitalization.
+     * https://leetcode.com/problems/detect-capital/description/
      * 
      * Valid: "USA", "Hello", "leetcode"
      * Invalid: "FlaG", "AbCd"
