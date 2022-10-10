@@ -150,12 +150,20 @@ public class Main {
         int mostOccuringNumber = arr[0];
         for (int n : arr) {
             int occurancesOfN = 0;
+            // If map contains the current element
             if (map.containsKey(n)) {
+                // Find out how many times it has been seen so far
                 occurancesOfN = map.get(n);
+                // Increment the number of occurances by 1.
                 map.put(n, ++occurancesOfN);
+                // Else, if we haven't seent his element yet
             } else {
-                map.put(n, occurancesOfN);
+                // Add the element to the map
+                map.put(n, 1);
             }
+
+            // If the nmber of occurances for the current element is greater than that of the
+            // mostOccuringNumber, replace it.
             if (occurancesOfN > map.get(mostOccuringNumber))
                 mostOccuringNumber = n;
         }
