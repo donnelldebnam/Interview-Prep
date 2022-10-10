@@ -1,10 +1,9 @@
-package Basta;
-
-import org.junit.Test;
+package test;
 
 import static org.junit.Assert.*;
 
 import junit.framework.*;
+import org.junit.Test;
 
 public class MainTest {
 
