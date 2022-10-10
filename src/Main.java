@@ -9,15 +9,25 @@ import java.util.ArrayList;
 public class Main {
  
     /** 
+     * Create a function that takes a collection of ints and an int as input
+     * and returns the indices of the two elements that sum up to the target sum.
+     * https://leetcode.com/problems/two-sum/
      * 
-     * [1, 2, 5], 7 --> [1, 2] (indices 1 and 2 sum up to the target of 7)
+     * Example: arr=[], target=0 --> throws Exception
+     * Example: arr=[1, 2, 5], taret=7 --> returns [1, 2]
+     * Example: arr=[5, 10, 15], target=8 --> returns null
      * 
      * @param arr a collection of integers.
      * @param target the wanted sum of two integers in the collection.
      * 
      * @return indices of the two integers that sum up to the target input.
      */
-    public static int[] twoSum(int[] arr, int target) {
+    public static int[] twoSum(int[] arr, int target) throws Exception {
+        // Input validation 
+        if (arr.length < 2) {
+            throw new IllegalArgumentException("Invalid input array; length too short.");
+        }
+
         // HashMap for storing entries mapping to index in which it was visited.
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         
