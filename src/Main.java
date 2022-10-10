@@ -1,5 +1,6 @@
 package src;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Stack;
@@ -7,6 +8,31 @@ import java.util.ArrayList;
 
 public class Main {
  
+    /** 
+     * 
+     * [1, 2, 5], 7 --> [1, 2] (indices 1 and 2 sum up to the target of 7)
+     * 
+     * @param arr a collection of integers.
+     * @param target the wanted sum of two integers in the collection.
+     * 
+     * @return indices of the two integers that sum up to the target input.
+     */
+    public static int[] twoSum(int[] arr, int target) {
+        // HashMap for storing entries mapping to index in which it was visited.
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        
+        // Visit each element in the input array. If the complement of the current element has 
+        // already been added to our map, return the two as a pair. Else, store the complement and its position.
+        for (int i = 0; i < arr.length; i++) {
+            int complement = target - arr[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(arr[i], i);
+        }
+        return null;
+    }
+
     /**
      * 
      * @param list an ArrayList of elements.
@@ -16,7 +42,7 @@ public class Main {
      * 
      * NOTE: Using a HashSet will sort the elements, thus destroys the order. Using a LinkedHashSet,
      * we can maintain the order
-    */
+     */
     public static ArrayList<String> removeDuplicateLyrics(ArrayList<String> list) {
         /*
          * Uses O(N) space to store elements in the HashSet.
@@ -131,11 +157,14 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        // Find the two numbers in the collection that make the target value.
+        System.out.println(Arrays.toString(twoSum(MainConstants.ARRAY_OF_INTEGERS2, 7)));
+
         // Remove duplicates from the following collections.
         System.out.println(removeDuplicateLyrics(MainConstants.ARRAYLIST_OF_STRINGS));
 
         // Find most occuring number.
-        System.out.println(mostOccuringNumber(MainConstants.ARRAY_OF_INTEGERS));
+        System.out.println(mostOccuringNumber(MainConstants.ARRAY_OF_INTEGERS1));
 
         // Determine if parentheses are balanced
         System.out.println(containsBalancedParentheses(MainConstants.VALID_PARENTHESES));

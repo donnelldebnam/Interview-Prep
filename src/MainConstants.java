@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class MainConstants {
 
     // Arrays
-    public final static int[] ARRAY_OF_INTEGERS = new int[] {1, 1, 1, 1, 1, 2, 3, 4, 4, 5, 3, 5, 23, 1, 2, 4, 5, 2, 1, 3, 4, 1, 1, 3, 4, 5, 6, 6, 6, 3};
+    public final static int[] ARRAY_OF_INTEGERS1 = new int[] {1, 1, 1, 1, 1, 2, 3, 4, 4, 5, 3, 5, 23, 1, 2, 4, 5, 2, 1, 3, 4, 1, 1, 3, 4, 5, 6, 6, 6, 3};
+    public final static int[] ARRAY_OF_INTEGERS2 = new int[] {1, 2, 5};
 
     // Strings
     public final static String VALID_PARENTHESES = "(())(())";
