@@ -19,7 +19,8 @@ public class MainConstants {
     public final static String INVALID_CAPITALIZED_STRING1 = "AbCd";
     public final static String INVALID_CAPITALIZED_STRING2 = "FlaG";
 
+    public static final String LYRICS_STRING1 = "We We are the the Champions! Champions!";
+
     // ArrayLists
-    public final static ArrayList<String> ARRAYLIST_OF_STRINGS = new ArrayList<String>(Arrays.asList("We", "We", "are", "the", "the", "Champions!"));
     public final static ArrayList<Integer> ARRAYLIST_OF_INTEGERS = new ArrayList<Integer>(Arrays.asList(1,1,1,5,2,3,4,7));
 }

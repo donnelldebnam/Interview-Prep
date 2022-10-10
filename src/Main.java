@@ -2,6 +2,7 @@ package src;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Stack;
 import java.util.ArrayList;
@@ -44,23 +45,28 @@ public class Main {
     }
 
     /**
+     * Given a String of lyrics with duplicated words, return the String without the duplicates.
      * 
      * @param list an ArrayList of elements.
-     * @return ArrayList containing only the unique elements.
+     * @return a String containing only the unique elements.
      * 
      * Big-O: O(N) as we are visiting each element to dump it into the set/other ArrayList.
      * 
      * NOTE: Using a HashSet will sort the elements, thus destroys the order. Using a LinkedHashSet,
      * we can maintain the order
      */
-    public static ArrayList<String> removeDuplicateLyrics(ArrayList<String> list) {
+    public static String removeDuplicateLyrics(String str) {
         /*
          * Uses O(N) space to store elements in the HashSet.
          * Uses O(N) space to store elements back in the ArrayList.
          * 
          * Note: one way to absolve this is to clear() the original list and reuse it.
          */
-        return new ArrayList<String>(new LinkedHashSet<String>(list));
+        String[] strSplit = str.split(" ");
+        ArrayList<String> listSplit = new ArrayList<String>(Arrays.asList(strSplit));
+        LinkedHashSet<String> setSplit = new LinkedHashSet<String>(listSplit);
+
+        return String.join(" ", setSplit); 
     }
 
     /**
@@ -89,7 +95,9 @@ public class Main {
     }
 
     /**
-     * Returns whether the input string contains balanced parentheses.
+     * Given an input string `str` that only contains parentheses, determine whether the
+     * string's parentheses are balanced.
+     * https://leetcode.com/problems/valid-parentheses/
      * 
      * Balanced = "(()"
      * Unbalanced = ")(", "(()"
@@ -119,7 +127,8 @@ public class Main {
     }
 
     /**
-     * Returns the integer in a collection of values that occurs the most frequently.
+     * Create a function that returns the most occuring element in a given
+     * collection of numbers.
      * 
      * @param arr an array of integer values.
      * @return mostOccuringValue the most frequently occuring value
@@ -138,12 +147,14 @@ public class Main {
         // Big-O: O(N) as we need to visit each index of the array.
         int mostOccuringNumber = arr[0];
         for (int n : arr) {
+            int occurancesOfN = 0;
             if (map.containsKey(n)) {
-                map.put(n, (map.get(n)) + 1);
+                occurancesOfN = map.get(n);
+                map.put(n, ++occurancesOfN);
             } else {
-                map.put(n, 0);
+                map.put(n, occurancesOfN);
             }
-            if (map.get(n) > map.get(mostOccuringNumber))
+            if (occurancesOfN > map.get(mostOccuringNumber))
                 mostOccuringNumber = n;
         }
         return mostOccuringNumber;
@@ -170,8 +181,8 @@ public class Main {
         // Find the two numbers in the collection that make the target value.
         System.out.println(Arrays.toString(twoSum(MainConstants.ARRAY_OF_INTEGERS2, 7)));
 
-        // Remove duplicates from the following collections.
-        System.out.println(removeDuplicateLyrics(MainConstants.ARRAYLIST_OF_STRINGS));
+        // Remove duplicates from the following Strings.
+        System.out.println(removeDuplicateLyrics(MainConstants.LYRICS_STRING1));
 
         // Find most occuring number.
         System.out.println(mostOccuringNumber(MainConstants.ARRAY_OF_INTEGERS1));
@@ -185,5 +196,4 @@ public class Main {
         System.out.println(usesValidCapitalization(MainConstants.INVALID_CAPITALIZED_STRING1));
         
     }
-
 }
