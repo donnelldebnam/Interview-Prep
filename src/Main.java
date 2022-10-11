@@ -15,7 +15,7 @@ public class Main {
      * https://leetcode.com/problems/two-sum/
      * 
      * Example: arr=[], target=0 --> throws Exception
-     * Example: arr=[1, 2, 5], taret=7 --> returns [1, 2]
+     * Example: arr=[1, 2, 5], target=7 --> returns [1, 2]
      * Example: arr=[5, 10, 15], target=8 --> returns null
      * 
      * @param arr a collection of integers.
