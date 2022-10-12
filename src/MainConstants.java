@@ -9,6 +9,14 @@ public class MainConstants {
     public final static int[] ARRAY_OF_INTEGERS1 = new int[] {1, 1, 1, 1, 1, 2, 3, 4, 4, 5, 3, 5, 23, 1, 2, 4, 5, 2, 1, 3, 4, 1, 1, 3, 4, 5, 6, 6, 6, 3};
     public final static int[] ARRAY_OF_INTEGERS2 = new int[] {1, 2, 5};
 
+    // 2-D Arays
+    public final static char[][] GRID1 = {
+        {'1','1','1','1','0'},
+        {'1','1','0','1','0'},
+        {'1','1','0','0','0'},
+        {'0','0','0','0','0'}
+    };
+
     // Strings
     public final static String VALID_PARENTHESES = "(())(())";
     public final static String INVALID_PARENTHESES = "(())(()))))";

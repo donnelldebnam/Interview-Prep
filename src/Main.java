@@ -1,14 +1,66 @@
 package src;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.LinkedHashSet;
 import java.util.Stack;
-import java.util.ArrayList;
 
 public class Main {
  
+    /** 
+     * Given an m x n 2D binary grid grid which represents a map of '1's (land) 
+     * and '0's (water), return the number of islands.
+     * https://leetcode.com/problems/number-of-islands
+     * 
+     * An island is surrounded by water and is formed by connecting adjacent lands 
+     * horizontally or vertically. You may assume all four edges of the grid are all 
+     * surrounded by water.
+     * 
+     * Input: grid = [
+     *   ["1","1","1","1","0"],
+     *   ["1","1","0","1","0"],
+     *   ["1","1","0","0","0"],
+     *   ["0","0","0","0","0"]
+     * ]
+     * Output: 1
+     */
+    public static int numIslands(char[][] grid) {
+        // Counter
+        int count = 0;
+
+        // Iterate over each element in the grid
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                // If we found the start of an island
+                if (grid[i][j] == '1') {
+                    // Increment our counter
+                    count++;
+                    // Start exploring the island
+                    DFS(i, j, grid);
+                }
+            }
+        }
+        return count;
+    }
+
+    private static void DFS(int i, int j, char[][] grid) {
+        // If the current position isn't valid, return
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length || grid[i][j] == '0') 
+            return;
+        // Mark this vertex as visited
+        grid[i][j] = '0';
+
+        // Explore in each direction
+        DFS(i+1, j, grid);
+        DFS(i-1, j, grid);
+        DFS(i, j+1, grid);
+        DFS(i, j-1, grid);
+        return;
+    }
+
     /** 
      * Create a function that takes a collection of ints and an int as input
      * and returns the indices of the two elements that sum up to the target sum.
@@ -206,5 +258,7 @@ public class Main {
         System.out.println(usesValidCapitalization(MainConstants.VALID_CAPITALIZED_STRING2));
         System.out.println(usesValidCapitalization(MainConstants.INVALID_CAPITALIZED_STRING1));
         
+        // Find number of islands.
+        System.out.println(numIslands(MainConstants.GRID1));
     }
 }
