@@ -25,7 +25,7 @@ public class Main {
      * Input: s = "foo", t = "bar"
      * Output: false
      */
-    public static  boolean isIsomorphic(String s, String t) {
+    public static boolean isIsomorphic(String s, String t) {
         // Storage
         HashMap<Character, Character> sToT = new HashMap<>();
         HashMap<Character, Character> tToS = new HashMap<>();
