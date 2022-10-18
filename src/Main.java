@@ -9,7 +9,55 @@ import java.util.LinkedHashSet;
 import java.util.Stack;
 
 public class Main {
- 
+
+    /**
+     * Given two strings s and t, determine if they are isomorphic.
+     * 
+     * Two strings s and t are isomorphic if the characters in s can be replaced to get t. 
+     * All occurrences of a character must be replaced with another character while 
+     * preserving the order of characters. No two characters may map to the same character, 
+     * but a character may map to itself.
+     * https://leetcode.com/problems/isomorphic-strings
+     * 
+     * Input: s = "egg", t = "add"
+     * Output: true
+     * 
+     * Input: s = "foo", t = "bar"
+     * Output: false
+     */
+    public static  boolean isIsomorphic(String s, String t) {
+        // Storage
+        HashMap<Character, Character> sToT = new HashMap<>();
+        HashMap<Character, Character> tToS = new HashMap<>();
+
+        // Input validation
+        if (s.length() != t.length()) 
+            return false;
+
+        // Loop through all characters
+        for (int i = 0; i < s.length(); i++) {
+            // 
+            char sChar = s.charAt(i);
+            char tChar = t.charAt(i);
+            // Map has seen this character
+            if (sToT.containsKey(sChar)) {
+                // Check if the known complement of this character
+                // is what we see at this index in the second String
+                if (sToT.get(sChar) != tChar) {
+                    return false;
+                }
+                // Map has not seen this character yet
+            } else {
+                if (tToS.containsKey(tChar)) { return false; }
+                // Store the character and its complement
+                sToT.put(sChar, tChar);
+                tToS.put(tChar, sChar);
+            }
+        }
+        return true;
+    }
+       
+
     /** 
      * Given an m x n 2D binary grid grid which represents a map of '1's (land) 
      * and '0's (water), return the number of islands.
@@ -240,6 +288,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+
+        // Determine if the Strings are isomorphic.
+        System.out.println(isIsomorphic(MainConstants.TEST_STRING1, MainConstants.TEST_STRING2));
+        System.out.println(isIsomorphic(MainConstants.TEST_STRING1, MainConstants.TEST_STRING3));
 
         // Find the two numbers in the collection that make the target value.
         System.out.println(Arrays.toString(twoSum(MainConstants.ARRAY_OF_INTEGERS2, 7)));

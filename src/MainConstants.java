@@ -27,6 +27,10 @@ public class MainConstants {
     public final static String INVALID_CAPITALIZED_STRING1 = "AbCd";
     public final static String INVALID_CAPITALIZED_STRING2 = "FlaG";
 
+    public final static String TEST_STRING1 = "egg";
+    public final static String TEST_STRING2 = "foo";
+    public final static String TEST_STRING3 = "bar";
+
     public static final String LYRICS_STRING1 = "We We are the the Champions! Champions!";
 
     // ArrayLists
