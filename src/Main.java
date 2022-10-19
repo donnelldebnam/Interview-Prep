@@ -11,6 +11,26 @@ import java.util.Stack;
 public class Main {
 
     /**
+     * Determine if the input array is in ascending order.
+     * 
+     * Input: arr = [1, 2, 3] 
+     * Output: false
+     * 
+     * Input: arr = [1, 2, 1]
+     * Output: false
+     * 
+     * @param arr an array if integers
+     * @return true if input array is in ascending order
+     */
+    public static boolean isAscending(int[] arr) {
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] > arr[i+1])
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Given two strings s and t, determine if they are isomorphic.
      * 
      * Two strings s and t are isomorphic if the characters in s can be replaced to get t. 
@@ -120,7 +140,6 @@ public class Main {
      * 
      * @param arr a collection of integers.
      * @param target the wanted sum of two integers in the collection.
-     * 
      * @return indices of the two integers that sum up to the target input.
      */
     public static int[] twoSum(int[] arr, int target) throws Exception {
@@ -288,6 +307,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+
+        // Determien if the arrays are in ascending order.
+        System.out.println(isAscending(MainConstants.ARRAY_ASCENDING_ORDER));
+        System.out.println(isAscending(MainConstants.ARRAY_DESCENDING_ORDER));
 
         // Determine if the Strings are isomorphic.
         System.out.println(isIsomorphic(MainConstants.TEST_STRING1, MainConstants.TEST_STRING2));
